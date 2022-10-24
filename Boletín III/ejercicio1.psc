@@ -1,13 +1,14 @@
-Algoritmo sin_titulo
+Algoritmo ejercicio1
 	
-	Escribir "¿Cuantos teclados vas a comprar?";
+	Escribir "Â¿Cuantos teclados vas a comprar?";
 	Leer nteclados;
 	
 	pteclados = 26;
 	
 	Si nteclados<4 Entonces
 		pteclados = 30
-	SiNo Si nteclados>8 Entonces
+	SiNo 
+		Si nteclados>8 Entonces
 			pteclados = 20
 		FinSi
 	FinSi
