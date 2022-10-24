@@ -6,7 +6,7 @@ Algoritmo ejercicio2
 	Escribir "Escribe tu género (V/M):";
 	leer genero;
 	
-	Si genero = "v" Entonces
+	Si genero = "V" Entonces
 		Si edad > 50 Entonces
 			pseguro = 350
 		SiNo
@@ -16,7 +16,7 @@ Algoritmo ejercicio2
 				pseguro = 400
 			FinSi
 		FinSi
-	SiNo Si genero = "m" Entonces
+	SiNo Si genero = "M" Entonces
 			Si edad>25 Entonces
 				pseguro = 350
 			SiNo pseguro = 400
