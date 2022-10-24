@@ -25,20 +25,20 @@ public class adivinar_numero {
 		}
 		
 		while (numero_elegido<numero_leido) {
-			System.out.println("No acertaste, el numero elegido es menor");
+			System.out.println("Prueba un número menor");
 			intentos++;
 			System.out.println("Escribelo otra vez");
 			numero_leido = sc.nextInt();
 		}
 		
 		while (numero_elegido>numero_leido) {
-			System.out.println("No acertaste, el numero elegido es mayor");
+			System.out.println("Prueba un número mayor");
 			intentos++;
 			System.out.println("Escribelo otra vez");
 			numero_leido = sc.nextInt();
 		}
 		
-		System.out.println("El numero correcto es 37!, has tenido " + intentos + " intentos");
+		System.out.println("¡El numero correcto es " + numero_elegido+ "! ", has tenido " + intentos + " intentos");
 		
 	}
 }
