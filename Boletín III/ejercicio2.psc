@@ -1,9 +1,9 @@
-Algoritmo sin_titulo
+Algoritmo ejercicio2
 	
 	Escribir "Escribe tu edad:";
 	Leer edad;
 	
-	Escribir "Escribe tu género (V/M):";
+	Escribir "Escribe tu gÃ©nero (V/M):";
 	leer genero;
 	
 	Si genero = "v" Entonces
