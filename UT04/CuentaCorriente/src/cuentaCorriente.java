@@ -17,16 +17,6 @@ public class cuentaCorriente {
         ArrayList<Integer> movimientos = new ArrayList<Integer>();
         movimientos.add(25);
         movimientos.get(0);
-
-        // En Integer "esteMovimiento" estamos guardando un entero que cogemos del ArrayList "movimientos",
-        // para no perder los datos del ArrayList "movimientos".
-        // La variable donde guardamos temporalmente los datos tiene que ser del mismo
-        // tipo que el original (Integer).
-        for (Integer esteMovimiento : movimientos) {
-            if (esteMovimiento < 0) {
-
-            }
-        }
     }
 
     // Con (Integer cantidad) le indicamos que cuando llamemos al metodo "Ingresar", ingresaremos
