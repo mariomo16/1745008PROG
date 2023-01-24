@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.ArrayList;
 
 @SuppressWarnings("unused")
 public class App {
