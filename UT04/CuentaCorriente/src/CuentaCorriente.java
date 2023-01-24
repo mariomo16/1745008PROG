@@ -4,12 +4,12 @@ public class CuentaCorriente {
 
     // Atributos siempre privados (saldo y movimientos).
     // Siempre hay que especificar si es publi/private, el tipo de dato que almacenara, y el nombre.
-    private static Double saldo = 0.0;
+    private static double saldo = 0.0;
     private ArrayList<Integer> movimientos;
 
     // Constructor siempre justo debajo de atributos.
     // Siempre tiene el mismo nombre que la clase.
-    public CuentaCorriente(Double saldo) {
+    public CuentaCorriente(double saldo) {
         movimientos = new ArrayList<Integer>();
     }
 
@@ -38,7 +38,7 @@ public class CuentaCorriente {
     }
 
     // Aqui indicamos que cuando llamemos al metodo "consultarsaldo",
-    // nos devolvera (return) un Double (saldo).
+    // nos devolvera (return) un double (saldo).
     public double consultarSaldo() {
         return saldo;
     }
