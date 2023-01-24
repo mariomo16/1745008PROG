@@ -1,15 +1,15 @@
 import java.util.ArrayList;
 
-public class cuentaCorriente {
+public class CuentaCorriente {
 
-    // Atributos siempre privados (Saldo y movimientos).
+    // Atributos siempre privados (saldo y movimientos).
     // Siempre hay que especificar si es publi/private, el tipo de dato que almacenara, y el nombre.
-    private static Double Saldo = 0.0;
+    private static Double saldo = 0.0;
     private ArrayList<Integer> movimientos;
 
     // Constructor siempre justo debajo de atributos.
     // Siempre tiene el mismo nombre que la clase.
-    public cuentaCorriente(Double Saldo) {
+    public CuentaCorriente(Double saldo) {
         movimientos = new ArrayList<Integer>();
     }
 
@@ -22,14 +22,14 @@ public class cuentaCorriente {
     // Con (Integer cantidad) le indicamos que cuando llamemos al metodo "Ingresar", ingresaremos
     // un entero (Integer) y se guardara en "cantidad".
     public void Ingresar(Integer cantidad) {
-        Saldo = Saldo + cantidad;
+        saldo = saldo + cantidad;
         movimientos.add(cantidad);
     }
 
     // (0 - cantidad) Para que nos devuelva un numero negativo ya que es una retirada.
     public boolean Retirar(Integer cantidad) {
-        if (Saldo >= cantidad) {
-            Saldo = Saldo - cantidad;
+        if (saldo >= cantidad) {
+            saldo = saldo - cantidad;
             movimientos.add(0 - cantidad);
             return true;
         } else {
@@ -37,10 +37,10 @@ public class cuentaCorriente {
         }
     }
 
-    // Aqui indicamos que cuando llamemos al metodo "consultarSaldo",
-    // nos devolvera (return) un Double (Saldo).
+    // Aqui indicamos que cuando llamemos al metodo "consultarsaldo",
+    // nos devolvera (return) un Double (saldo).
     public double consultarSaldo() {
-        return Saldo;
+        return saldo;
     }
 
     // Aqui indicamos que cuando llamemos al metodo "listaMovimientos",

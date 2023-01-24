@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class App {
     @SuppressWarnings("resource")
     public static void main(String[] args) throws Exception {
-        cuentaCorriente miCuenta = new cuentaCorriente(null);
+        CuentaCorriente miCuenta = new CuentaCorriente(null);
         Scanner sc = new Scanner(System.in);
 
         int opcion;
