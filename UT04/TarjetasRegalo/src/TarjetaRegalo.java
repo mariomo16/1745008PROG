@@ -4,21 +4,19 @@ import java.util.Random;
 public class TarjetaRegalo {
 
     // Atributoss
-    private double saldoCuenta;
+    private double saldo;
     private Integer identificador;
 
     // Constructor
-    public TarjetaRegalo(Integer saldoTarjeta) {
+    public TarjetaRegalo(double Saldo) {
+        saldo = Saldo;
+        identificador = gen();
     }
 
-    public void tarjetaUno(double saldoTarjeta) {
-        double saldoCuenta;
-        Integer identificador;
-    }
-
-    public void tarjetaDos(double saldoTarjeta) {
-        double saldoCuenta;
-        Integer identificador;
+    // Constructor 2
+    public TarjetaRegalo(double Saldo1, double Saldo2) {
+        saldo = Saldo1 + Saldo2;
+        identificador = gen();
     }
 
     // Generador identificador (numero) de 5 digitos random.
@@ -28,14 +26,24 @@ public class TarjetaRegalo {
     }
 
     // Getter identificador
-    public Integer getIdentificador(Integer identificador) {
-        return identificador = gen();
+    public Integer getIdentificador() {
+        return identificador;
+    }
+
+    // Setter saldo
+    public void setSaldo(double Saldo) {
+        saldo = Saldo;
+    }
+
+    // Getter saldo
+    public double getSaldo() {
+        return saldo;
     }
 
     // Metodo gastarSaldo
     public boolean gastarSaldo(Integer cantidad) {
-        if (saldoCuenta >= cantidad) {
-            saldoCuenta = saldoCuenta - cantidad;
+        if (saldo >= cantidad) {
+            saldo = saldo - cantidad;
             return true;
         } else {
             return false;
