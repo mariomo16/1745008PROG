@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class CuentaCorriente {
 
     // Atributos siempre privados (saldo y movimientos).
-    // Siempre hay que especificar si es publi/private, el tipo de dato que almacenara, y el nombre.
+    // Siempre hay que especificar si es public/private, el tipo de dato que almacenara, y el nombre.
     private static double saldo = 0.0;
     private ArrayList<Integer> movimientos;
 
