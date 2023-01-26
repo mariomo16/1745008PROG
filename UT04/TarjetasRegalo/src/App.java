@@ -1,6 +1,5 @@
 import java.util.Scanner;
 
-@SuppressWarnings("unused")
 public class App {
 
     @SuppressWarnings("resource")

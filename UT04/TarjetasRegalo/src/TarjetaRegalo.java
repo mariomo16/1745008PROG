@@ -1,6 +1,5 @@
 import java.util.Random;
 
-@SuppressWarnings("unused")
 public class TarjetaRegalo {
 
     // Atributoss
