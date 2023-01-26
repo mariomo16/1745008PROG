@@ -1,10 +1,9 @@
 import java.util.Scanner;
 
-@SuppressWarnings("unused")
 public class App {
     @SuppressWarnings("resource")
     public static void main(String[] args) throws Exception {
-        CuentaCorriente miCuenta = new CuentaCorriente(null);
+        CuentaCorriente miCuenta = new CuentaCorriente(0);
         Scanner sc = new Scanner(System.in);
 
         int opcion;
