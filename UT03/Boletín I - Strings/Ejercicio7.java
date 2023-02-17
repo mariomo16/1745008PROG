@@ -42,4 +42,5 @@ public class Ejercicio7 {
         }
         System.out.println("Resultado: " + resultado);
     }
+    
 }
