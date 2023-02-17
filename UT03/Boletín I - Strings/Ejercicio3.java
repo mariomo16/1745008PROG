@@ -1,11 +1,8 @@
-package boletinStrings;
-
 import java.util.Scanner;
 
 public class Ejercicio3 {
 
 	public static void main(String[] args) {
-		// boletin strings
 		Scanner sc = new Scanner(System.in);
 
 	    System.out.print("Ingresa la primera cadena: ");
