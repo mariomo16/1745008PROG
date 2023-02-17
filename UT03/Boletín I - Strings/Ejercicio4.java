@@ -1,5 +1,3 @@
-package boletinStrings;
-
 import java.util.Scanner;
 
 public class Ejercicio4 {
