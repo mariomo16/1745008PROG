@@ -1,13 +1,10 @@
-// Se importa la clase Scanner para poder leer la entrada del usuario
 import java.util.Scanner;
 
 public class Ejercicio7 {
 
     public static void main(String[] args) {
-        // Se crea un objeto Scanner llamado sc
         Scanner sc = new Scanner(System.in);
 
-        // Se muestra un mensaje pidiéndole al usuario que introduzca una frase
         System.out.print("Introduce una frase: ");
 
         // Se lee la frase introducida por el usuario con el método nextLine() y se asigna a la variable frase
