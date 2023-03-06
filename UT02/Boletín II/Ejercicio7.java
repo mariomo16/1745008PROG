@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class Ejercicio7 {
-
 	public static void main(String[] args) {
 		// Programa que cuenta cuantos numeros hemos introducido, la media de los
 		// impares, y el mayor de los pares

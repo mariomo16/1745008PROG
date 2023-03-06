@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class Ejercicio3 {
-
     public static void main(String[] args) {
         // Programa que muestra por pantalla todas las potencias con base el numero dado y exponentes entre uno
         // y el exponente introducido, y las calcula

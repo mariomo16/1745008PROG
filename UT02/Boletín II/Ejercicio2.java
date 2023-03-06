@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class Ejercicio2 {
-
 	public static void main(String[] args) {
 		// Programa que calcula la media de los numeros positivos introducidos
         Scanner sc = new Scanner(System.in);

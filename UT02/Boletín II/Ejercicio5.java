@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class Ejercicio5 {
-
 	public static void main(String[] args) {
         // Programa que suma los 100 numeros siguientes al numero entero y positivo
         // introducido

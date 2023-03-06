@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class Ejercicio6 {
-
 	public static void main(String[] args) {
 	    // Programa que muestra los numeros enteros comprendidos entre dos numeros
         // introducidos por teclado
