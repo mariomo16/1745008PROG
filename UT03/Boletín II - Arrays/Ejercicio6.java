@@ -1,7 +1,7 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Ejercicio6 {
+    
     public static void main(String[] args) {
         int[] array = new int[10];
         Scanner sc = new Scanner(System.in);

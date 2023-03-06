@@ -6,7 +6,6 @@ public class Ejercicio2 {
 	    Scanner sc = new Scanner(System.in);
 
 	    System.out.print("Introduce una cadena de texto: ");
-
 	    String cadena = sc.nextLine();
 
 	    String[] palabras = cadena.split(" ");

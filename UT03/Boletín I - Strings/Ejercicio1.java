@@ -2,11 +2,11 @@ public class Ejercicio1 {
 
     public static void main(String[] args) {
         // Declaración de 5 variables de tipo char
-        char var1 = 'H';
-        char var2 = 'o';
-        char var3 = 'l';
-        char var4 = 'a';
-        char var5 = '!';
+        char var1 = 'M';
+        char var2 = 'a';
+        char var3 = 'r';
+        char var4 = 'i';
+        char var5 = 'o';
 
         // Concatenación de las variables char en una cadena
         String cadena = "" + var1 + var2 + var3 + var4 + var5;

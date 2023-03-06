@@ -15,18 +15,18 @@ public class Ejercicio5 {
 		int contadorU = 0;
 
 		for (int i = 0; i < frase.length(); i++) {
-		  char caracter = frase.toLowerCase().charAt(i);
-		  if (caracter == 'a') {
-		    contadorA++;
-		  } else if (caracter == 'e') {
-		    contadorE++;
-		  } else if (caracter == 'i') {
-		    contadorI++;
-		  } else if (caracter == 'o') {
-		    contadorO++;
-		  } else if (caracter == 'u') {
-		    contadorU++;
-		  }
+			char caracter = frase.toLowerCase().charAt(i);
+			if (caracter == 'a') {
+				contadorA++;
+			} else if (caracter == 'e') {
+				contadorE++;
+			} else if (caracter == 'i') {
+				contadorI++;
+			} else if (caracter == 'o') {
+		    	contadorO++;
+			} else if (caracter == 'u') {
+		    	contadorU++;
+			}
 		}
 		
 		System.out.println("En la frase hay:");
