@@ -1,5 +1,3 @@
-package boletin2;
-
 import java.util.Scanner;
 
 public class Ejercicio2 {
@@ -7,7 +5,9 @@ public class Ejercicio2 {
 	public static void main(String[] args) {
 		// Programa que calcula la media de los numeros positivos introducidos
         Scanner sc = new Scanner(System.in);
-        int acumulador = 0, contador = 0, input, media;
+        int input, media;
+        int acumulador = 0;
+        int contador = 0;
 
         System.out.println("Introduce numeros (numero negativo para salir)");
         do {
@@ -22,7 +22,6 @@ public class Ejercicio2 {
 
         media = acumulador / contador;
         System.out.println("La media es " + media);
-
 	}
 
 }

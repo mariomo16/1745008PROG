@@ -1,5 +1,3 @@
-package boletin2;
-
 import java.util.Scanner;
 
 public class Ejercicio7 {
@@ -14,33 +12,33 @@ public class Ejercicio7 {
 	    int mayorPar = Integer.MIN_VALUE;
 
 	    while (true) {
-	      System.out.print("Introduce un numero: ");
-	      int numero = sc.nextInt();
+	    	System.out.print("Introduce un numero: ");
+	    	int numero = sc.nextInt();
 
-	      if (numero < 0) {
-	        break;
-	      }
+	    	if (numero < 0) {
+	    		break;
+	    	}
 
-	      contador++;
+	    	contador++;
 
-	      if (numero % 2 == 0) {
-	        mayorPar = Math.max(mayorPar, numero);
-	      } else {
-	        sumaImpares += numero;
-	        contadorImpares++;
-	      }
+	    	if (numero % 2 == 0) {
+	    		mayorPar = Math.max(mayorPar, numero);
+	    	} else {
+	   			sumaImpares += numero;
+	    		contadorImpares++;
+	    	}
 	    }
 
 	    System.out.println("Se han introducido " + contador + " numeros");
 	    if (contadorImpares > 0) {
-	      System.out.println("La media de los impares es " + (sumaImpares / contadorImpares));
+	    	System.out.println("La media de los impares es " + (sumaImpares / contadorImpares));
 	    } else {
-	      System.out.println("No se han introducido impares");
+	    	System.out.println("No se han introducido impares");
 	    }
 	    if (mayorPar == Integer.MIN_VALUE) {
-	      System.out.println("No se han introducido pares");
+	    	System.out.println("No se han introducido pares");
 	    } else {
-	      System.out.println("El mayor numero par es " + mayorPar);
+	    	System.out.println("El mayor numero par es " + mayorPar);
 	    }
 	}
 

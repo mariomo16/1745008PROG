@@ -1,12 +1,10 @@
-package boletin2;
-
 import java.util.Scanner;
 
 public class Ejercicio1 {
 
 	public static void main(String[] args) {
-		// Programa que crea una zona privada, necesitas poner un codigo de 4 digitos en
-        // 4 intentos
+		// Programa que crea una zona privada, 
+        // necesitas poner un codigo de 4 digitos en 4 intentos
         Scanner sc = new Scanner(System.in);
         int password = 4103, oportunidades = 4;
 
@@ -27,7 +25,6 @@ public class Ejercicio1 {
                 }
             }
         }
-
 	}
 
 }

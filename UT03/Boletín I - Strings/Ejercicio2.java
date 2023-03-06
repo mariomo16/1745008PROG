@@ -12,7 +12,7 @@ public class Ejercicio2 {
 	    String[] palabras = cadena.split(" ");
 
 	    for (String palabra : palabras) {
-	      System.out.println(palabra);
+	    	System.out.println(palabra);
 	    }
 	}
 
