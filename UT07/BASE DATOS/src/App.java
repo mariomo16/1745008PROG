@@ -2,16 +2,23 @@ import java.io.*;
 import java.sql.*;
 
 import modelo.CrearConexion;
+import modelo.Publication;
+import modelo.PublicationRepository;
 
-public class App {
+class App {
     public static void main(String[] args) throws Exception {
-        // Nos conectamos a la base de datos
-        CrearConexion miConexion = new CrearConexion();
-        Conection con = miConexion.hazConection;
+        
+        System.out.println("Iniciando aplicación...");
+        PublicationRepository repoLibros = new PublicationRepository();
 
-        Statement st = con.createStatement;
+        Publication libro = repoLibros.buscarPorId(1);
 
-        // Consulta que vamos a ejecutar
-        String query = "select * from publication";
+        if (libro != null ) {
+            System.out.println("Libro encontrado");
+            System.out.println(libro.toString());
+        }
+        else {
+            System.out.println("No se encontró el libro");
+        }
     }
 }
