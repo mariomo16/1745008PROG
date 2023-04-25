@@ -1,24 +1,73 @@
 import java.io.*;
 import java.sql.*;
+import java.util.Scanner;
 
-import modelo.CrearConexion;
-import modelo.Publication;
-import modelo.PublicationRepository;
+import controlador.Publicaciones;
 
 class App {
+    static Scanner sc = new Scanner(System.in);
+
+    static Publicaciones biblioteca = new Publicaciones();
     public static void main(String[] args) throws Exception {
         
         System.out.println("Iniciando aplicación...");
-        PublicationRepository repoLibros = new PublicationRepository();
+        
+        
+        
 
-        Publication libro = repoLibros.buscarPorId(1);
+        System.out.print("Escribe el id a buscar: ");
+        int id = Integer.parseInt(sc.nextLine());
+        System.out.println(biblioteca.buscarPorId(id));
 
-        if (libro != null ) {
-            System.out.println("Libro encontrado");
-            System.out.println(libro.toString());
+
+        System.out.print("Escribe el titulo a buscar: ");
+        String titulo = sc.nextLine();
+
+        var resultado = biblioteca.buscarPorTitulo(titulo);
+
+        if (resultado.size()>0) {
+            System.out.println("Encontrados " + 
+                resultado.size() + 
+                " resultados:");
+            for (String libro : resultado) {
+                System.out.println(libro);
+            }
         }
         else {
-            System.out.println("No se encontró el libro");
+            System.out.println("No se encontró ningún resultado");
         }
+
+        System.out.print("Escribe el titulo a insertar: ");
+        String tituloL = sc.nextLine();
+
+        System.out.print("Escribe la fecha: ");
+        String fechaL = sc.nextLine();
+
+        System.out.print("Escribe la editorial: ");
+        String editorialL = sc.nextLine();
+
+        biblioteca.insertaLibro(tituloL, fechaL, editorialL);
+
+
+        
+        
+    }
+
+
+    public static void modifica () {
+        System.out.print("Escribe el id del libro a modificar: ");
+        Integer id = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Escribe nuevo titulo: ");
+        String titulo = sc.nextLine();
+
+        System.out.print("Escribe la fecha a modificar: ");
+        String fecha = sc.nextLine();
+
+        System.out.print("Escribe la editorial a modificar: ");
+        String editorial = sc.nextLine();
+
+        biblioteca.modificaLibro(id , titulo, fecha, editorial);
     }
 }
