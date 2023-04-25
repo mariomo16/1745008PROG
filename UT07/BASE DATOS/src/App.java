@@ -12,13 +12,9 @@ class App {
         
         System.out.println("Iniciando aplicación...");
         
-        
-        
-
         System.out.print("Escribe el id a buscar: ");
         int id = Integer.parseInt(sc.nextLine());
         System.out.println(biblioteca.buscarPorId(id));
-
 
         System.out.print("Escribe el titulo a buscar: ");
         String titulo = sc.nextLine();
@@ -47,12 +43,7 @@ class App {
         String editorialL = sc.nextLine();
 
         biblioteca.insertaLibro(tituloL, fechaL, editorialL);
-
-
-        
-        
     }
-
 
     public static void modifica () {
         System.out.print("Escribe el id del libro a modificar: ");
