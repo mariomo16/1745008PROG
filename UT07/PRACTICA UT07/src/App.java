@@ -9,6 +9,7 @@ class App {
     static Scanner sc = new Scanner(System.in);
 
     static Publicaciones biblioteca = new Publicaciones();
+    
     public static void main(String[] args) throws Exception {
         
         System.out.println("Iniciando aplicación...");
