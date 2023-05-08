@@ -1,5 +1,8 @@
 package modelo;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class Publication {
     private final Integer id;
     private String bookTitle;
@@ -47,5 +50,20 @@ public class Publication {
         ", fechaPublicación=" + publishDate + 
         ", Editorial=" + publishCo + "]";
     }
-    
+
+    public static Publication fromResulSet (ResultSet rs) throws SQLException {
+        //obtengo los datos del resultado
+        String bookTitle = rs.getString("book_title");
+        String publishDate = rs.getString("publish_date");
+        String publishCo = rs.getString("publish_co");
+        Integer id = rs.getInt("id");
+
+        //Lo asigno a un objeto Publication
+        Publication p = new Publication(
+            id , bookTitle, publishDate,
+            publishCo
+        );
+
+        return p;
+    }
 }

@@ -114,12 +114,12 @@ public class PublicationRepository {
         }
     }
 
-    public void modificar(Integer id , Publication libro) {
-    
+    public boolean modificar(Integer id , Publication libro) {
+        return false;
     }
 
-    public void borrar() {
-
+    public Object borrar(Integer id) {
+        return null;
     }
 
     public String mostrar(){

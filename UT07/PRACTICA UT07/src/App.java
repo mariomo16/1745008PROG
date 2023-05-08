@@ -1,24 +1,53 @@
 import java.io.*;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
-import controlador.Publicaciones;
 import vista.Menu;
+import controlador.Publicaciones;
 
 class App {
     static Scanner sc = new Scanner(System.in);
 
+    static Menu miMenu;
+
+    static int opcion;
+
     static Publicaciones biblioteca = new Publicaciones();
     public static void main(String[] args) throws Exception {
-        
-        System.out.println("Iniciando aplicación...");
-        
-        insertar();
-        
-        buscarporId();
-        
+        creaMenu();
+        do {
+            miMenu.verMenu("GESTIÓN DE LIBROS");
+            opcion = miMenu.leerOpcion();
+            switch (opcion) {
+                case 1:
+                    listar();
+                    break;
+                case 2:
+                    buscarPorTitulo();
+                    break;
+                case 3:
+                    insertar();
+                    break;
+                case 4:
+                    modificar();
+                    break;
+                case 5:
+                    borrar();
+                    break;
+                default:
+                    break;
+            }
+        } while (opcion!=0);
     }
 
+    public static void listar () {
+        var listado = biblioteca.obtenerListado();
+        for (String linea: listado) {
+            System.out.println(linea);
+        }
+
+    }
     public static void buscarporId() {
         System.out.print("Escribe el id a buscar: ");
         int id = Integer.parseInt(sc.nextLine());
@@ -45,7 +74,7 @@ class App {
     }
 
     public static void insertar() {
-        System.out.print("Escribe el titulo a insertar: ");
+        System.out.println("Escribe el titulo a insertar: ");
         String tituloL = sc.nextLine();
 
         System.out.print("Escribe la fecha: ");
@@ -57,6 +86,14 @@ class App {
         biblioteca.insertaLibro(tituloL, fechaL, editorialL);
     }
 
+
+    public static void borrar () {
+        System.out.print("Escribe el id del libro a borrar: ");
+        Integer id = sc.nextInt();
+        sc.nextLine();
+
+        System.out.println(biblioteca.borraLibro(id));
+    }
     public static void modificar () {
         System.out.print("Escribe el id del libro a modificar: ");
         Integer id = sc.nextInt();
@@ -71,6 +108,17 @@ class App {
         System.out.print("Escribe la editorial a modificar: ");
         String editorial = sc.nextLine();
 
-        biblioteca.modificaLibro(id , titulo, fecha, editorial);
+        System.out.println(biblioteca.modificaLibro(id , titulo, fecha, editorial));
+    }
+
+    private static void creaMenu() {
+        var listaOpciones = new ArrayList<String>();
+        listaOpciones.add("VER LISTADO LIBROS");
+        listaOpciones.add("BUSCAR LIBRO");
+        listaOpciones.add("AÑADIR LIBRO");
+        listaOpciones.add("MODIFICAR LIBRO");
+        listaOpciones.add("BORRAR LIBRO");
+        miMenu = new Menu(listaOpciones);
+
     }
 }

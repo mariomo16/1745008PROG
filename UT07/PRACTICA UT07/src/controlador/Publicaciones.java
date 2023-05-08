@@ -41,10 +41,48 @@ public class Publicaciones {
         repoLibros.grabarRepositorio();
     }
 
-
-    public void modificaLibro( Integer id , String titulo , String fecha , String editorial) {
+    /**  public void modificaLibro( Integer id , String titulo , String fecha , String editorial) {
         var libro = new Publication( id ,titulo, 
         fecha , editorial);
         repoLibros.modificar(id, libro);
+    } 
+    */
+
+        public String modificaLibro( Integer id , String titulo , String fecha , String editorial) {
+        Publication libro_original = repoLibros.buscarPorId(id);
+
+        if (libro_original != null) {
+            var libro = new Publication( id ,titulo,
+                    fecha , editorial);
+            if (repoLibros.modificar(id, libro)) {
+                return "Libro modificado -> \n" +
+                        libro.toString();
+            }
+            else {
+                return "Error al modificar";
+            }
+
+        } else {
+            return "No se encontró el libro";
+        }
+
     }
+
+    public String borraLibro( Integer id) {
+        Publication libro = repoLibros.buscarPorId(id);
+
+        if (libro != null) {
+            var res = repoLibros.borrar(id);
+            if (res == null) return "Libro borrado -> \n" +  libro.toString();
+            else return "Error al borrar";
+        } else {
+            return "No se encontró el libro";
+        }
+
+    }
+
+    public Object obtenerListado() {
+        return null;
+    }
+  
 }
