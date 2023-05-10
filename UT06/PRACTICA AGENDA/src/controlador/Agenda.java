@@ -4,7 +4,11 @@ import java.util.ArrayList;
 
 public class Agenda {
 
-    private Archivo archivoAgenda = new Archivo (agenda.txt);
+    // private Archivo archivoAgenda = new Archivo (agenda.txt);
+
+    public Agenda() {
+        var
+    }
     
     
 }
