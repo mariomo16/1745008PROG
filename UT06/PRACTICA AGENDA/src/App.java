@@ -12,7 +12,6 @@
  * 
  */
 
-
 import java.util.Scanner;
 
 import controlador.Agenda;
