@@ -1,15 +1,12 @@
 package modelo;
 
-import java.time.LocalDate;
-
 public class Persona {
 
     // Atributos privados
-    private String nombre, apellidos, telefono, correo;
-    private LocalDate fechaNacimiento;
+    private String nombre, apellidos, telefono, correo, fechaNacimiento;
 
     // Constructor
-    public Persona(String nombre, String apellidos, String telefono, String correo, LocalDate fechaNacimiento) {
+    public Persona(String nombre, String apellidos, String telefono, String correo, String fechaNacimiento) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.telefono = telefono;
@@ -34,7 +31,7 @@ public class Persona {
         this.correo = correo;
     }
 
-    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+    public void setFechaNacimiento(String fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
     
@@ -55,7 +52,7 @@ public class Persona {
         return correo;
     }
 
-    public LocalDate getFechaNacimiento() {
+    public String getFechaNacimiento() {
         return fechaNacimiento;
     }
 

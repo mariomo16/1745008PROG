@@ -1,1 +1,4 @@
-hola;martinez;21398213;pepe@gmail2002-10-27
+Mario;Morales Ortega;601280050;mariomo16.cieza@gmail.com;03-10-2002
+Joaquin;Rios;123456789;profesor@gmail.com;01-01-2000
+hola;adios;123123123;;01-02-2003
+Hola;Adios;123456789;;02-03-2004
