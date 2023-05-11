@@ -1,3 +1,18 @@
+/*
+ * Mario Morales Ortega
+ * PRACTICA AGENDA
+ * 3PAW
+ * 
+ * Los metodos modificar, y borrar, actuan sobre un archivo temporal (temporal.txt)
+ * para poder borrar la linea del contacto antiguo.
+ * 
+ * Rellena el fichero temporal con todos los contactos que no se van a modificar
+ * y luego añade el contacto ya modificado, borra el archivo agenda.txt, 
+ * y renombra el archivo temporal.txt -> agenda.txt
+ * 
+ */
+
+
 import java.util.Scanner;
 
 import controlador.Agenda;
