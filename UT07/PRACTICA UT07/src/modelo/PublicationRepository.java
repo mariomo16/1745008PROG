@@ -1,10 +1,17 @@
 package modelo;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.JOptionPane;
+
+import com.mysql.cj.jdbc.exceptions.MySQLTransactionRollbackException;
+import com.mysql.cj.protocol.Resultset;
 
 public class PublicationRepository {
     
@@ -17,6 +24,8 @@ public class PublicationRepository {
 
     // nos conectamos a la base de datos
     CrearConexion miConexion = new CrearConexion();
+
+    Publication publication = new Publication(null, null, null, null);
 
     public PublicationRepository() {        
         try (Connection conexion = miConexion.hazConexion();
@@ -114,16 +123,69 @@ public class PublicationRepository {
         }
     }
 
-    public boolean modificar(Integer id , Publication libro) {
-        return false;
+    public void modificar() {
+        try (Connection conexion = miConexion.hazConexion();
+        Statement sentencia = conexion.createStatement();) {
+
+            sentencia = miConexion.hazConexion().prepareStatement("UPDATE apressBooks SET book_title = ?, publish_co = ?, publish_date = ? WHERE id = ?");
+            sentencia.setString(1, nuevoTitulo != null ? nuevoTitulo : publication.getBookTitle());
+            sentencia.setString(3, nuevaEditorial != null ? nuevaEditorial : publication.getPublishCo());
+            sentencia.setInt(4, nuevoAnioPublicacion != null ? nuevoAnioPublicacion : publication.getPublishDate());
+            sentencia.setInt(5, publication.getId());
+
+            sentencia.executeUpdate(null);
+            sentencia.close();
+            miConexion.hazConexion().close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public Object borrar(Integer id) {
-        return null;
+        try (Connection conexion = miConexion.hazConexion();
+        Statement sentencia = conexion.createStatement();) {
+
+            miConexion.hazConexion();
+
+            sentencia = miConexion.hazConexion().prepareStatement("DELETE FROM apressBooks WHERE id = ?");
+            sentencia.setInt(1, publication.getId());
+
+            int confirmacion = JOptionPane.showConfirmDialog(null, "¿Está seguro que desea borrar el libro?", "Confirmación de borrado", JOptionPane.YES_NO_OPTION);
+            
+            if (confirmacion == JOptionPane.YES_OPTION) {
+                sentencia.executeUpdate(null);
+            }
+            sentencia.close();
+            miConexion.hazConexion().close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
-    public String mostrar(){
-        return null;
+    public <libro> String mostrar(){
+        try (Connection conexion = miConexion.hazConexion();
+        Statement sentencia = conexion.createStatement();) {
+
+            sentencia = miConexion.hazConexion().prepareStatement("SELECT * FROM libros");
+            ResultSet rs = sentencia.executeQuery(null);
+            List<libro> libros = new ArrayList<>();
+
+            while (rs.next()) {
+                publication.setid(rs.getInt("id"));
+                publication.setBookTitle(rs.getString("book_title"));
+                publication.setPublishCo(rs.getString("publish_co"));
+                publication.setPublishDate(rs.getString("publish_date"));
+                libros.add(publication.getBookTitle());
+            }
+            sentencia.close();
+            miConexion.hazConexion().close();
+            rs.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return libros;
     }
 
 }
