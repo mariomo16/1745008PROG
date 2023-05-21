@@ -38,20 +38,20 @@ public class App {
                 System.out.println("4 -> Buscar contacto");
                 System.out.println("5 -> Borrar contacto");
                 System.out.println("0 -> Salir");
-    
+
                 switch (eleccion = in.nextInt()) {
                     case 1:
                         agenda.crearContacto();
                         break;
-    
+
                     case 2:
                         agenda.modificarContacto();
                         break;
-    
+
                     case 3:
                         agenda.leerContactos();
                         break;
-    
+
                     case 4:
                         agenda.buscarContacto();
                         break;
@@ -59,7 +59,7 @@ public class App {
                     case 5:
                         agenda.borrarContacto();
                         break;
-    
+
                     default:
                         break;
                 }
@@ -68,7 +68,8 @@ public class App {
                     System.out.println("Opcion incorrecta, introduzca un valor valido.");
                 }
             } while (eleccion != 0);
-        } catch (Exception e/*inputMismatchException*/) {
+            in.close();
+        } catch (Exception e/* inputMismatchException */) {
             System.out.println("Ha ocurrido un error: " + e.getMessage());
         }
     }
