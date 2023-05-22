@@ -42,9 +42,9 @@ public class App {
                 System.out.println("4 -> Buscar contacto");
                 System.out.println("5 -> Borrar contacto");
                 System.out.println("0 -> Salir");
-    
+
                 switch (eleccion = in.nextInt()) {
-                    case 1:                  
+                    case 1:
                         // Pedir al usuario los datos del nuevo contacto
                         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
                         System.out.print("Introduzca el nombre del nuevo contacto: ");
@@ -59,20 +59,21 @@ public class App {
                         agenda.aFechaNacimiento = (reader.readLine());
                         agenda.crearContacto();
                         break;
-    
+
                     case 2:
                         // Pedir al usuario el nombre del contacto que desea modificar
-                        // nombro el BufferedReader como reader2 ya que al ya haber un reader arriba, da conflicto
+                        // nombro el BufferedReader como reader2 ya que al ya haber un reader arriba, da
+                        // conflicto
                         BufferedReader reader2 = new BufferedReader(new InputStreamReader(System.in));
                         System.out.print("Introduzca el nombre del contacto que desea modificar: ");
                         agenda.nombreAModificar = reader2.readLine();
                         agenda.modificarContacto();
                         break;
-    
+
                     case 3:
                         agenda.leerContactos();
                         break;
-    
+
                     case 4:
                         // Pedir el nombre del contacto a buscar
                         System.out.println("Introduce el nombre del contacto:");
@@ -87,7 +88,7 @@ public class App {
                         agenda.nombreABorrar = reader3.readLine();
                         agenda.borrarContacto();
                         break;
-    
+
                     default:
                         break;
                 }
@@ -97,7 +98,7 @@ public class App {
                 }
             } while (eleccion != 0);
             in.close();
-        } catch (Exception e/*inputMismatchException*/) {
+        } catch (Exception e/* inputMismatchException */) {
             System.out.println("Ha ocurrido un error: " + e.getMessage());
         }
         in.close();
