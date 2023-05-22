@@ -232,6 +232,7 @@ public class Agenda {
             // Leer cada línea del archivo de agenda y comprobar si el cumpleaños del
             // contacto corresponde a la fecha actual
             String lineaActual;
+            boolean cumpleanyos = false;
             while ((lineaActual = lector.readLine()) != null) {
                 String[] datos = lineaActual.split(";");
                 LocalDate fechaNacimiento = LocalDate.parse(datos[4], formatter);
@@ -241,14 +242,16 @@ public class Agenda {
                     System.out.println("Hoy es el cumpleaños de " + datos[0] + " " + datos[1] + "!");
                     System.out.println("Teléfono: " + datos[2]);
                     System.out.println("Correo electrónico: " + datos[3]);
-                    System.out.println("");
-                    // Hago que el usuario pulse un boton antes de entrar en el menu,
-                    // para que en el caso de que alguien cumpla años,
-                    // pueda ver quien y su informacion antes de llevarle al menu
-                    System.out.println("");
-                    System.out.println("Pulsa ENTER para continuar");
-                    in.nextLine();
+                    cumpleanyos = true;
                 }
+            }
+            if (cumpleanyos = true) {
+                // En el caso de que alguien cumpla años, hago que
+                // el usuario pulse una tecla antes de continuar al menu
+                System.out.println("");
+                System.out.println("");
+                System.out.println("Pulsa ENTER para continuar");
+                in.nextLine();
             }
             // Cerrar el archivo de agenda
             lector.close();
