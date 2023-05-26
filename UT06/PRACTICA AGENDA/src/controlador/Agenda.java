@@ -123,8 +123,7 @@ public class Agenda {
             File agenda = new File("agenda.txt");
             BufferedReader lector = new BufferedReader(new FileReader(agenda));
 
-            // Leer cada línea del archivo y mostrar los datos del contacto correspondiente
-            // en la consola
+            // Leer cada línea del archivo y mostrar los datos del contacto correspondiente en la consola
             String lineaActual;
             while ((lineaActual = lector.readLine()) != null) {
                 String[] datos = lineaActual.split(";");
@@ -179,19 +178,16 @@ public class Agenda {
         }
     }
 
-    // Distinge mayusculas de minusculas al escribir el nombre del contacto a borrar
     public void borrarContacto() {
         try {
-            // Abrir el archivo de agenda en modo lectura y el archivo temporal en modo
-            // escritura
+            // Abrir el archivo de agenda en modo lectura y el archivo temporal en modo escritura
             File agenda = new File("agenda.txt");
             File temporal = new File("temporal.txt");
             BufferedReader lector = new BufferedReader(new FileReader(agenda));
             BufferedWriter escritor = new BufferedWriter(new FileWriter(temporal));
 
-            // Leer cada línea del archivo de agenda y escribir todas las líneas en el
-            // archivo temporal, excepto la línea correspondiente al contacto que se desea
-            // borrar
+            // Leer cada línea del archivo de agenda y escribir todas las líneas en el archivo temporal
+            // excepto la línea correspondiente al contacto que se desea borrar
             String lineaActual;
             while ((lineaActual = lector.readLine()) != null) {
                 String[] datos = lineaActual.split(";");

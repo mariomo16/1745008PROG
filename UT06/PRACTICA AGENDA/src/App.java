@@ -74,8 +74,7 @@ public class App {
 
                     case 2:
                         // Pedir al usuario el nombre del contacto que desea modificar
-                        // nombro el BufferedReader como reader2 ya que al ya haber un reader arriba, da
-                        // conflicto
+                        // Nombro el BufferedReader como reader2 ya que al ya haber un reader arriba, da conflicto
                         BufferedReader reader2 = new BufferedReader(new InputStreamReader(System.in));
                         System.out.print("Introduzca el nombre del contacto que desea modificar: ");
                         agenda.nombreAModificar = reader2.readLine();
