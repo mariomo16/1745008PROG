@@ -11,8 +11,8 @@
  * // tenga que pultar la tecla ENTER para proceder con el menu, por si acaso le interesa ver 
  * // los datos de la persona que cumple años antes de ir al menu. (dd/MM/yyyy)
  * 
- * Correccion? 15-05: 
- *      - Ahora Agenda pide todos los datos en vez de cabiarlos directamente en el metodo ageda.nombreMetodo
+ * Correccion 15-05: 
+ *      ? Ahora Agenda pide todos los datos en vez de cabiarlos directamente en el metodo ageda.nombreMetodo
  * 
  * Correccion 26-05: 
  *      - El metodo modificarContacto ya no deberia de dar error al modificar mal un contacto.
