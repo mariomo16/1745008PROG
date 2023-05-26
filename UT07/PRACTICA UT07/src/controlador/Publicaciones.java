@@ -19,10 +19,9 @@ public class Publicaciones {
 
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
-                String titulo = resultSet.getString("book_title");
-                String anyoPublicacion = resultSet.getString("publish_date");
-                String editorial = resultSet.getString("publish_co");
-                // ... y así sucesivamente con el resto de las columnas que desees obtener
+                titulo = resultSet.getString("book_title");
+                anyoPublicacion = resultSet.getString("publish_date");
+                editorial = resultSet.getString("publish_co");
 
                 System.out.println("ID: " + id);
                 System.out.println("Título: " + titulo);
