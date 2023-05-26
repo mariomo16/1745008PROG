@@ -47,8 +47,6 @@ public class Agenda {
         }
     }
 
-    // Distinge mayusculas de minusculas al escribir el nombre del contacto a
-    // modificar
     public void modificarContacto() {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -65,7 +63,7 @@ public class Agenda {
             String lineaActual;
             while ((lineaActual = lector.readLine()) != null) {
                 String[] datos = lineaActual.split(";");
-                if (datos[0].equals(nombreAModificar)) {
+                if (datos[0].equalsIgnoreCase(nombreAModificar)) {
                     System.out.println("Introduzca el nuevo nombre del contacto (en blanco si no desea modificar):");
                     String nuevoNombre = reader.readLine();
                     if (nuevoNombre.equals("")) {
@@ -94,7 +92,7 @@ public class Agenda {
                     if (nuevoFechaNacimiento.equals("")) {
                         nuevoFechaNacimiento = datos[4];
                     }
-                    escritor.write(datos[0] + ";" + nuevoApellidos + ";" + nuevoTelefono + ";" + nuevoCorreo + ";"
+                    escritor.write(nuevoNombre + ";" + nuevoApellidos + ";" + nuevoTelefono + ";" + nuevoCorreo + ";"
                             + nuevoFechaNacimiento + "\n");
                 } else {
                     escritor.write(lineaActual + "\n");
@@ -197,7 +195,7 @@ public class Agenda {
             String lineaActual;
             while ((lineaActual = lector.readLine()) != null) {
                 String[] datos = lineaActual.split(";");
-                if (!datos[0].equals(nombreABorrar)) {
+                if (!datos[0].equalsIgnoreCase(nombreABorrar)) {
                     escritor.write(lineaActual + "\n");
                 }
             }
@@ -245,7 +243,7 @@ public class Agenda {
                     cumpleanyos = true;
                 }
             }
-            if (cumpleanyos = true) {
+            if (cumpleanyos == true) {
                 // En el caso de que alguien cumpla años, hago que
                 // el usuario pulse una tecla antes de continuar al menu
                 System.out.println("");

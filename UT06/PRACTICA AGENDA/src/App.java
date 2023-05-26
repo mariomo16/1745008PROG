@@ -1,17 +1,26 @@
 /*
- * Mario Morales Ortega
- * PRACTICA AGENDA
- * 3PAW
+ * Mario Morales Ortega (1745008)
+ * 3PAW - UT06 - PRACTICA AGENDA
  * 
- * Los metodos modificar, y borrar, actuan sobre un archivo temporal (temporal.txt)
- * para poder borrar la linea del contacto antiguo.
+ * // Los metodos que necesiten escribir en el archivo agenda.txt, trabajaran sobre un archivo temporal;
+ * // El metodo creara temporal.txt, escribira todos los datos de agenda.txt ahi, 
+ * // cambiando la linea que se haya agregado/modificado, y al terminar,
+ * // borra agenda.txt y renombra temporal.txt -> agenda.txt
  * 
- * Rellena el fichero temporal con todos los contactos que no se van a modificar
- * y luego añade el contacto ya modificado, borra el archivo agenda.txt, 
- * y renombra el archivo temporal.txt -> agenda.txt
+ * // Al ejecutar la app, se comprueba si alguien cumple años, y si es asi, hace que el usuario
+ * // tenga que pultar la tecla ENTER para proceder con el menu, por si acaso le interesa ver 
+ * // los datos de la persona que cumple años antes de ir al menu. (dd/MM/yyyy)
  * 
- * Correccion 15-05: Ahora Agenda pide todos los datos en vez de cabiarlos 
- * directamente en el metodo ageda.nombreMetodo
+ * Correccion? 15-05: 
+ *      - Ahora Agenda pide todos los datos en vez de cabiarlos directamente en el metodo ageda.nombreMetodo
+ * 
+ * Correccion 26-05: 
+ *      - El metodo modificarContacto ya no deberia de dar error al modificar mal un contacto.
+ *      - El metodo modificarContacto ya no distingue de mayusculas y minusculas.
+ *      - Ahora si al crear un contacto no se le asigna fecha de nacimiento,
+ *        se le ponda 01-01-0001 de forma automatica para que no de error al ejecutar la aplicacion.
+ *      - El metodo comprobarCumpleaños solo hace que el usuario pulse ENTER si alguien
+ *        de la agenda cumple años.
  * 
  */
 
@@ -57,6 +66,9 @@ public class App {
                         agenda.aCorreo = (reader.readLine());
                         System.out.println("Introduzca la fecha de nacimiento del nuevo contacto (dd-MM-yyyy): ");
                         agenda.aFechaNacimiento = (reader.readLine());
+                        if (agenda.aFechaNacimiento.equals("")) {
+                            agenda.aFechaNacimiento = "01-01-0001";
+                        }
                         agenda.crearContacto();
                         break;
 
