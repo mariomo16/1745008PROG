@@ -65,6 +65,8 @@ public class App {
     }
 
     public static void mostrarLibros() {
+        // Llamo al metodo para mostrar todos los libros
+        // de la base de datos por pantalla
         publicaciones.mostrarLibros();
     }
 
