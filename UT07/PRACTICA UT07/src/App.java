@@ -6,13 +6,15 @@
  * 
  *  -- Algunos System.out.println(""); los uso para dejar un espacio despues de introducir u obtener algo y que se lea mejor.
  * 
+ *  -- En el metodo modificarLibro(), si no se introducen valores nuevos en algun dato, se quedara como estaba.
+ * 
  *  -- Al introducir valores incorrectos (o cualquier cosa que provoque un error, 
  *     se muestra un mensaje en pantalla "Ha ocurrido un error: ", seguido de el mensaje de error para poder identificarlo").
  * 
  *     -- Ejemplo al introducir valores incorrectos en el formato de la fecha de publicacion:
  *        "Ha ocurrido un error: Data truncation: Incorrect date value: '202-1230' for column 'publish_date' at row 1"
  * 
- *     -- En el metodo modificar(), por ejemplo, prefiero poner que al dar error, salga un mensaje asi, indicando que ha habido un error,
+ *     -- En el metodo modificarLibro(), por ejemplo, prefiero poner que al dar error, salga un mensaje asi, indicando que ha habido un error,
  *        seguido de una linea indicando que error ha dado, por si acaso el error que salta no es el del formato de fecha incorrecto.
  *        No se si lo querias asi, o preferias que salga directamente algo parecido a "FORMATO DE FECHA INCORRECTO" (en este caso concreto).
  * 
@@ -70,6 +72,8 @@ public class App {
         // Obtener título del libro a buscar por teclado
         System.out.println("Ingrese el título del libro:");
         titulo = in.nextLine();
+        // Llamo al metodo para verificar si el libro existe, y si es asi
+        // se llama al metodo buscarLibros() con el titulo del libro que tiene q buscar
         verificarExistencia(titulo);
         if (publicaciones.existencia == 1) {
             publicaciones.buscarLibros(titulo);
@@ -84,6 +88,7 @@ public class App {
         editorial = in.nextLine();
         System.out.println("Ingrese la fecha de publicación del libro (yyyy-MM-dd):");
         anyoPublicacion = in.nextLine();
+        // Llamo al metodo añadirLibro() pasandole los datos introducidos anteriormente
         publicaciones.añadirLibros(titulo, editorial, anyoPublicacion);
     }
 
@@ -91,6 +96,9 @@ public class App {
         // Obtener título del libro a modificar por teclado
         System.out.println("Ingrese el título del libro a modificar:");
         titulo = in.nextLine();
+        // Llamo al metodo para verificar si el libro existe, 
+        // y existe, se le pediran los nuevos datos del libro
+        // para pasarselos luego al metodo modificarLibro()
         verificarExistencia(titulo);
         if (publicaciones.existencia == 1) {
             // Obtener nuevos detalles del libro por teclado
@@ -100,17 +108,23 @@ public class App {
             nuevoAnyoPublicacion = in.nextLine();
             System.out.println("Ingrese la nueva editorial del libro:");
             nuevoEditorial = in.nextLine();
+            // Llamo al metodo modificarLibro() pasandole los datos introducidos anteriormente
             publicaciones.modificarLibros(titulo, nuevoTitulo, nuevoAnyoPublicacion, nuevoEditorial);
         }
     }
 
     public static void borrarLibros() {
+        // Obtener el titulo del libro que quiere borrar
         System.out.println("Ingrese el título del libro a borrar:");
         String titulo = in.nextLine();
+        // Llamo al metodo borrarLibro() pasandole el titulo del libro que tiene que borrar
         publicaciones.borrarLibros(titulo);
     }
 
     public static void verificarExistencia(String titulo) {
+        // Llamo al metodo verificarExistencia(), 
+        // pasandole el titulo del libro
+        // para comprobar si el libro existe o no
         publicaciones.verificarExistencia(titulo);
     }
 
