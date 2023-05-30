@@ -74,7 +74,7 @@ public class Publicaciones {
                 // Mostrar los detalles del libro
                 System.out.println("");
                 System.out.println("Título: " + titulo);
-                System.out.println("Año de publicación: " + anyoPublicacion);
+                System.out.println("Fecha de publicación: " + anyoPublicacion);
                 System.out.println("Editorial: " + editorial);
                 System.out.println("");
             }
