@@ -55,8 +55,6 @@ public class App {
             }
         } while (opcion != 0);
         in.close();
-        System.out.println("Un 5 para ser la persona mas feliz de este planeta");
-        System.out.println("");
     }
 
     public static void mostrarLibros() {
