@@ -10,8 +10,6 @@
  *     se muestra un mensaje en pantalla "Ha ocurrido un error: ", seguido de el mensaje de error para poder identificarlo").
  *     -- Ejemplo al introducir valores incorrectos en el formato de la fecha de publicacion:
  *        "Ha ocurrido un error: Data truncation: Incorrect date value: '202-1230' for column 'publish_date' at row 1"
- *     -- En el metodo modificar(), por ejemplo, prefiero poner que al dar error, salga un mensaje asi, indicando que ha habido un error,
- *        seguido de una linea indicando que error ha dado, por si acaso el error que salta no es el del formato de fecha incorrecto.
  * 
  *  -- En principio, el unico error que me ha llegado a salir ha sido al introducir valores incorrectos en el formato de la fecha de publicacion,
  *     pero la app sigue funcionando sin problema, y solamente se muestra una unica linea indicando el error (para poder identificarlo).
