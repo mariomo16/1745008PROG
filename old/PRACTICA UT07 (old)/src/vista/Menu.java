@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Menu {
     ArrayList<String> listaOpciones;
-    private final String linea = "****************************************************************************";
+    private final String linea="****************************************************************************";
 
     public Menu(ArrayList<String> listaOpciones) {
         this.listaOpciones = listaOpciones;
@@ -14,18 +14,18 @@ public class Menu {
 
     public void verMenu(String titulo) {
         Integer huecos = linea.length() - titulo.length();
-        Integer mitadA = (huecos / 2) - 1;
-        Integer mitadB = mitadA;
-        if (huecos % 2 > 0) {
-            mitadB = mitadA + 1;
+        Integer mitadA = (huecos/2)-1;
+        Integer mitadB= mitadA;
+        if ( huecos%2 > 0 ) {
+             mitadB = mitadA+1;
         }
         System.out.println(linea);
         System.out.print("*");
-        for (int i = 0; i < mitadA; i++) {
+        for (int i=0; i<mitadA ; i++) {
             System.out.print(" ");
         }
         System.out.print(titulo);
-        for (int i = 0; i < mitadB; i++) {
+        for (int i=0; i<mitadB ; i++) {
             System.out.print(" ");
         }
         System.out.println("*");
@@ -46,7 +46,8 @@ public class Menu {
         try {
             var leido = sc.nextLine();
             opcion = Integer.parseInt(leido);
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             System.out.println("VALOR NO VÁLIDO");
         }
         return opcion;

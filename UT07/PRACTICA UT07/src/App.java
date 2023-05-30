@@ -1,10 +1,27 @@
+/*
+ * Mario Morales Ortega (1745008)
+ * 3PAW - UT07 - PRACTICA JDBC
+ * 
+ *  -- Hay algunos comentarios que pongo para ubicarme y saber donde estoy. (EJ: // TITULO, // AÑO PUBLICACION, // EDITORIAL)
+ * 
+ *  -- Algunos System.out.println(""); los uso para dejar un espacio despues de introducir u obtener algo y que se lea mejor.
+ * 
+ *  -- Al introducir valores incorrectos (o cualquier cosa que provoque un error, 
+ *     se muestra un mensaje en pantalla "Ha ocurrido un error: ", seguido de el mensaje de error para poder identificarlo").
+ *     -- Ejemplo al introducir valores incorrectos en el formato de la fecha de publicacion:
+ *        "Ha ocurrido un error: Data truncation: Incorrect date value: '202-1230' for column 'publish_date' at row 1"
+ * 
+ *  -- En principio, el unico error que me ha llegado a salir ha sido al introducir valores incorrectos en el formato de la fecha de publicacion,
+ *     pero la app sigue funcionando sin problema, y solamente se muestra una unica linea indicando el error (para poder identificarlo).
+ * 
+ */
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
     static vista.Menu miMenu;
     static int opcion;
-    static int id;
     static String titulo, anyoPublicacion, editorial;
     static String nuevoTitulo, nuevoAnyoPublicacion, nuevoEditorial;
     static Scanner in = new Scanner(System.in);
@@ -60,7 +77,7 @@ public class App {
         titulo = in.nextLine();
         System.out.println("Ingrese la editorial del libro:");
         editorial = in.nextLine();
-        System.out.println("Ingrese la fecha de publicación del libro (yyyy-DD-mm):");
+        System.out.println("Ingrese la fecha de publicación del libro (yyyy-MM-dd):");
         anyoPublicacion = in.nextLine();
         publicaciones.añadirLibros(titulo, editorial, anyoPublicacion);
     }
@@ -74,7 +91,7 @@ public class App {
             // Obtener nuevos detalles del libro por teclado
             System.out.println("Ingrese el nuevo título del libro:");
             nuevoTitulo = in.nextLine();
-            System.out.println("Ingrese el nuevo año de publicación del libro:");
+            System.out.println("Ingrese la nueva fecha de publicación del libro (yyyy-MM-dd):");
             nuevoAnyoPublicacion = in.nextLine();
             System.out.println("Ingrese la nueva editorial del libro:");
             nuevoEditorial = in.nextLine();

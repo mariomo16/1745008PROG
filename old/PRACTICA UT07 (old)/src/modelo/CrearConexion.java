@@ -6,31 +6,30 @@ import java.sql.SQLException;
 
 public class CrearConexion {
 
-    // Parámetros de la conexión
+    //Parámetros de la conexión
     private String driver = "jdbc:mysql://";
-    private String host = "localhost";
-    private String port = "3306";
-    private String database = "apressBooks";
+    private String host="localhost";
+    private String port="3306";
+    private String database="apressBooks";
     private String user = "usuario3PAW";
     private String password = "P@ssw0rd";
-    private Connection conn;
+    private Connection con;
 
     /**
      * Método para conectarnos a la base de datos
-     * 
      * @return el ID de la conexión
      * @throws SQLException
      */
     public Connection hazConexion() throws SQLException {
-        Connection conn = null;
+        Connection con = null;
 
         // Creamos la url para la conexión
         String urlConexion = driver + host + ":" + port + "/" + database;
 
         // conectamos a la base de datos
-        conn = DriverManager.getConnection(urlConexion, user, password);
+        con = DriverManager.getConnection(urlConexion, user, password);
 
-        return conn;
+        return con;
     }
 
 }

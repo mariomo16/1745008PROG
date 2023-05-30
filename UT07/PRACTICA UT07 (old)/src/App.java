@@ -1,114 +1,95 @@
-import java.io.*;
-import java.sql.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import vista.Menu;
-import controlador.Publicaciones;
-
-class App {
-    static Scanner sc = new Scanner(System.in);
-
-    static Menu miMenu;
-
+public class App {
+    static vista.Menu miMenu;
     static int opcion;
+    static int id;
+    static String titulo, anyoPublicacion, editorial;
+    static String nuevoTitulo, nuevoAnyoPublicacion, nuevoEditorial;
+    static Scanner in = new Scanner(System.in);
 
-    static Publicaciones biblioteca = new Publicaciones();
+    static private controlador.Publicaciones publicaciones = new controlador.Publicaciones();
+
     public static void main(String[] args) throws Exception {
+
         creaMenu();
         do {
             miMenu.verMenu("GESTIÓN DE LIBROS");
             opcion = miMenu.leerOpcion();
             switch (opcion) {
                 case 1:
-                    listar();
+                    mostrarLibros();
                     break;
                 case 2:
-                    buscarPorTitulo();
+                    buscarLibros();
                     break;
                 case 3:
-                    insertar();
+                    añadirLibros();
                     break;
                 case 4:
-                    modificar();
+                    modificarLibros();
                     break;
                 case 5:
-                    borrar();
+                    borrarLibros();
                     break;
                 default:
                     break;
             }
-        } while (opcion!=0);
+        } while (opcion != 0);
+        in.close();
     }
 
-    public static void listar () {
-        var listado = biblioteca.obtenerListado();
-        for (String linea: listado) {
-            System.out.println(linea);
-        }
-
-    }
-    public static void buscarporId() {
-        System.out.print("Escribe el id a buscar: ");
-        int id = Integer.parseInt(sc.nextLine());
-        System.out.println(biblioteca.buscarPorId(id));
+    public static void mostrarLibros() {
+        publicaciones.mostrarLibros();
     }
 
-    public static void buscarPorTitulo() {
-        System.out.print("Escribe el titulo a buscar: ");
-        String titulo = sc.nextLine();
-
-        var resultado = biblioteca.buscarPorTitulo(titulo);
-
-        if (resultado.size()>0) {
-            System.out.println("Encontrados " + 
-                resultado.size() + 
-                " resultados:");
-            for (String libro : resultado) {
-                System.out.println(libro);
-            }
-        }
-        else {
-            System.out.println("No se encontró ningún resultado");
+    public static void buscarLibros() {
+        // Obtener título del libro a buscar por teclado
+        System.out.println("Ingrese el título del libro:");
+        titulo = in.nextLine();
+        verificarExistencia(titulo);
+        if (publicaciones.existencia == 1) {
+            publicaciones.buscarLibros(titulo);
         }
     }
 
-    public static void insertar() {
-        System.out.println("Escribe el titulo a insertar: ");
-        String tituloL = sc.nextLine();
-
-        System.out.print("Escribe la fecha: ");
-        String fechaL = sc.nextLine();
-
-        System.out.print("Escribe la editorial: ");
-        String editorialL = sc.nextLine();
-
-        biblioteca.insertaLibro(tituloL, fechaL, editorialL);
+    public static void añadirLibros() {
+        // Obtener detalles del libro por teclado
+        System.out.println("Ingrese el título del libro:");
+        titulo = in.nextLine();
+        System.out.println("Ingrese la editorial del libro:");
+        editorial = in.nextLine();
+        System.out.println("Ingrese la fecha de publicación del libro (yyyy-DD-mm):");
+        anyoPublicacion = in.nextLine();
+        publicaciones.añadirLibros(titulo, editorial, anyoPublicacion);
     }
 
-
-    public static void borrar () {
-        System.out.print("Escribe el id del libro a borrar: ");
-        Integer id = sc.nextInt();
-        sc.nextLine();
-
-        System.out.println(biblioteca.borraLibro(id));
+    public static void modificarLibros() {
+        // Obtener título del libro a modificar por teclado
+        System.out.println("Ingrese el título del libro a modificar:");
+        titulo = in.nextLine();
+        verificarExistencia(titulo);
+        if (publicaciones.existencia == 1) {
+            // Obtener nuevos detalles del libro por teclado
+            System.out.println("Ingrese el nuevo título del libro:");
+            nuevoTitulo = in.nextLine();
+            System.out.println("Ingrese el nuevo año de publicación del libro:");
+            nuevoAnyoPublicacion = in.nextLine();
+            System.out.println("Ingrese la nueva editorial del libro:");
+            nuevoEditorial = in.nextLine();
+            publicaciones.modificarLibros(titulo, nuevoTitulo, nuevoAnyoPublicacion, nuevoEditorial);
+        }
     }
-    public static void modificar () {
-        System.out.print("Escribe el id del libro a modificar: ");
-        Integer id = sc.nextInt();
-        sc.nextLine();
 
-        System.out.print("Escribe nuevo titulo: ");
-        String titulo = sc.nextLine();
+    public static void borrarLibros() {
+        System.out.println("Ingrese el título del libro a borrar:");
+        String titulo = in.nextLine();
+        publicaciones.borrarLibros(titulo);
+    }
 
-        System.out.print("Escribe la fecha a modificar: ");
-        String fecha = sc.nextLine();
-
-        System.out.print("Escribe la editorial a modificar: ");
-        String editorial = sc.nextLine();
-
-        System.out.println(biblioteca.modificaLibro(id , titulo, fecha, editorial));
+    public static void verificarExistencia(String titulo) {
+        publicaciones.verificarExistencia(titulo);
     }
 
     private static void creaMenu() {
@@ -118,7 +99,7 @@ class App {
         listaOpciones.add("AÑADIR LIBRO");
         listaOpciones.add("MODIFICAR LIBRO");
         listaOpciones.add("BORRAR LIBRO");
-        miMenu = new Menu(listaOpciones);
-
+        miMenu = new vista.Menu(listaOpciones);
     }
+
 }
