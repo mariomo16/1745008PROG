@@ -19,7 +19,7 @@
  *        No se si lo querias asi, o preferias que salga directamente algo parecido a "FORMATO DE FECHA INCORRECTO" (en este caso concreto).
  * 
  *  -- En principio, el unico error que me ha llegado a salir ha sido al introducir valores incorrectos en el formato de la fecha de publicacion,
- *     pero la app sigue funcionando sin problema, y solamente se muestra una unica linea indicando el error (para poder identificarlo).
+ *     solamente se muestra una unica linea indicando el error (para poder identificarlo) e igualmente LA APP SIGUE FUNCIONANDO SIN PROBLEMA.
  * 
  */
 
